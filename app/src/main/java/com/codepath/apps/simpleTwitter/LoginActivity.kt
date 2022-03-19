@@ -1,4 +1,4 @@
-package com.codepath.apps.restclienttemplate
+package com.codepath.apps.simpleTwitter
 
 import android.content.Intent
 import android.os.AsyncTask
@@ -6,8 +6,8 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.View
-import com.codepath.apps.restclienttemplate.models.SampleModel
-import com.codepath.apps.restclienttemplate.models.SampleModelDao
+import com.codepath.apps.simpleTwitter.models.SampleModel
+import com.codepath.apps.simpleTwitter.models.SampleModelDao
 import com.codepath.oauth.OAuthLoginActionBarActivity
 
 class LoginActivity : OAuthLoginActionBarActivity<TwitterClient>() {

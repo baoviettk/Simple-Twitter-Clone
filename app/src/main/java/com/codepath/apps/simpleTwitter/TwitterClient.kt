@@ -1,11 +1,11 @@
-package com.codepath.apps.restclienttemplate
+package com.codepath.apps.simpleTwitter
 
 import android.content.Context
+import com.codepath.apps.simpleTwitter.R
 import com.codepath.asynchttpclient.RequestParams
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler
 import com.codepath.oauth.OAuthBaseClient
 import com.github.scribejava.apis.TwitterApi
-import com.github.scribejava.core.builder.api.BaseApi
 
 /*
  *
@@ -55,9 +55,28 @@ class TwitterClient(context: Context) : OAuthBaseClient(
 
         // Can specify query string params directly or through RequestParams.
         val params = RequestParams()
-        params.put("count", "25")
+        params.put("count", "10")
         params.put("since_id", 1)
         client.get(apiUrl, params, handler)
+    }
+    fun getNextPageOfTweets(handler: JsonHttpResponseHandler, maxId:Long ) {
+        val apiUrl =
+            getApiUrl("statuses/home_timeline.json")
+
+        // Can specify query string params directly or through RequestParams.
+        val params = RequestParams()
+        params.put("count", "5")
+        params.put("max_id", maxId)
+        client.get(apiUrl, params, handler)
+    }
+fun publishTweet(tweetContent: String, handler: JsonHttpResponseHandler) {
+        val apiUrl =
+            getApiUrl("statuses/update.json")
+
+        // Can specify query string params directly or through RequestParams.
+        val params = RequestParams()
+        params.put("status", tweetContent)
+        client.post(apiUrl, params,"", handler)
     }
 
     /* 1. Define the endpoint URL with getApiUrl and pass a relative path to the endpoint

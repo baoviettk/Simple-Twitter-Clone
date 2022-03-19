@@ -1,4 +1,4 @@
-package com.codepath.apps.restclienttemplate
+package com.codepath.apps.simpleTwitter
 
 import android.util.Log
 import android.view.LayoutInflater
@@ -8,8 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.codepath.apps.restclienttemplate.models.Tweet
-import java.util.zip.Inflater
+import com.codepath.apps.simpleTwitter.models.Tweet
 
 class TweetsAdapter(val tweets: ArrayList<Tweet>):RecyclerView.Adapter<TweetsAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TweetsAdapter.ViewHolder {
